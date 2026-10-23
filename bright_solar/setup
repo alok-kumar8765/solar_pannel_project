@@ -1,0 +1,63 @@
+# Run it on Windows 10/11
+
+Extract the ZIP, open the sk_bright_solar_django folder in VS Code, then open its terminal.
+
+## Step 1 — Create a virtual environment
+
+```code
+
+py -m venv .venv
+.venv\Scripts\Activate
+
+```
+
+## Step 2 — Install dependencies
+
+```code
+
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+
+```
+
+
+## Step 3 — Create database tables
+
+```code
+
+python manage.py makemigrations core
+python manage.py migrate
+
+```
+
+
+
+## Step 4 — Create your owner/admin account
+
+```code
+
+python manage.py createsuperuser
+
+```
+
+## Step 5 — Start the website
+
+```code
+
+python manage.py runserver
+
+```
+
+### Open these addresses in your browser:
+- Public website: http://127.0.0.1:8000/
+- Owner administration: http://127.0.0.1:8000/admin/
+- Solar products: http://127.0.0.1:8000/products/
+- Staff dashboard: http://127.0.0.1:8000/dashboard/
+
+
+### 4. Set up the business database
+After logging into Django Admin, configure the following in order:
+1. Branches: create each branch and specify its location and manager.
+2. Users and employee profiles: create employee accounts and assign roles and branches.
+3. Solar products: enter actual prices, system types, descriptions and images.
+4. Appointments: review customer enquiries and their assignment/status information.

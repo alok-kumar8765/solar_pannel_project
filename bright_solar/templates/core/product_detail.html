@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block title %}{{ product.title }} | S.K Bright Solar Energy{% endblock %}
+{% block content %}
+<section class="section detail-layout"><div>{% if product.image %}<img class="detail-image" src="{{ product.image.url }}" alt="{{ product.title }} solar system">{% else %}<div class="product-art detail-art art-{{ product.system_type }}"><span>☀</span><div class="panel-art"></div></div>{% endif %}</div><div><p class="eyebrow">{{ product.get_system_type_display }} SOLAR</p><h1>{{ product.title }}</h1>{% if product.capacity_kw %}<p class="pill">{{ product.capacity_kw }} kW capacity</p>{% endif %}<p>{{ product.description }}</p>{% if product.price_from %}<h2 class="price">From ₹{{ product.price_from|floatformat:0 }}</h2>{% else %}<h2>Price on consultation</h2>{% endif %}{% if product.benefits %}<h3>Key benefits</h3><ul class="check-list">{% for benefit in product.benefits.splitlines %}<li>{{ benefit }}</li>{% endfor %}</ul>{% endif %}<a class="btn btn-gold" href="{% url 'appointment_create' product.pk %}">Request Site Visit ↗</a></div></section>
+{% endblock %}

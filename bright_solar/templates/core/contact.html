@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block title %}Contact S.K Bright Solar Energy{% endblock %}
+{% block content %}
+<section class="page-hero"><p class="eyebrow">CONTACT OUR TEAM</p><h1>Let's talk solar.</h1><p>Share your requirements and our team can help you explore the next step.</p></section>
+<section class="section contact-layout"><div class="contact-info"><h2>S.K Bright Solar Energy</h2><p>Your Energy Partner</p><div class="contact-line"><span>☎</span><div><small>Call</small><a href="tel:+917398406469">7398406469</a></div></div><div class="contact-line"><span>◉</span><div><small>WhatsApp</small><a href="https://wa.me/917307402720" target="_blank" rel="noopener">7307402720</a></div></div><div class="contact-line"><span>⌖</span><div><small>Location</small><b>Ramnagar, Varanasi, Uttar Pradesh</b></div></div><div class="contact-line"><span>↗</span><div><small>Service area</small><b>Across Uttar Pradesh</b></div></div><div class="map-placeholder"><span>Map integration placeholder</span><small>Add a verified Google Maps embed URL here before production.</small></div></div>
+<form method="post" class="form-card">{% csrf_token %}<h2>Send an enquiry</h2>{% for field in form %}<div class="form-field"><label for="{{ field.id_for_label }}">{{ field.label }}{% if field.field.required %} *{% endif %}</label>{{ field }}{% for error in field.errors %}<small class="error">{{ error }}</small>{% endfor %}</div>{% endfor %}<button class="btn btn-gold" type="submit">Send Message ↗</button></form></section>
+{% endblock %}

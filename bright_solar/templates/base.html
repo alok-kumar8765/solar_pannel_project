@@ -1,0 +1,39 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}S.K Bright Solar Energy | Solar Solutions Across Uttar Pradesh{% endblock %}</title>
+  <meta name="description" content="S.K Bright Solar Energy provides On-Grid, Off-Grid and Hybrid solar solutions, installation, service and maintenance across Uttar Pradesh.">
+  <meta name="theme-color" content="#101b2b">
+  <meta property="og:title" content="S.K Bright Solar Energy | Your Energy Partner">
+  <meta property="og:description" content="Professional solar solutions, installation and maintenance across Uttar Pradesh.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="{% static 'css/site.css' %}">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="{% url 'home' %}" aria-label="S.K Bright Solar Energy home">
+    <span class="brand-mark">☀</span><span>S.K <b>BRIGHT</b><small>SOLAR ENERGY</small></span>
+  </a>
+  <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+  <nav class="nav-links" aria-label="Main navigation">
+    <a href="{% url 'home' %}#home">Home</a><a href="{% url 'home' %}#about">About</a>
+    <a href="{% url 'products' %}">Solar Solutions</a><a href="{% url 'home' %}#services">Services</a>
+    <a href="{% url 'home' %}#process">Process</a><a href="{% url 'home' %}#faq">FAQ</a><a href="{% url 'contact' %}">Contact</a>
+    {% if user.is_authenticated %}<a href="{% url 'dashboard' %}">Dashboard</a>{% endif %}
+    <a class="nav-cta" href="https://wa.me/917307402720?text=Hello%20S.K%20Bright%20Solar%20Energy%2C%20I%20would%20like%20a%20solar%20quote." target="_blank" rel="noopener">WhatsApp / Get Quote ↗</a>
+  </nav>
+</header>
+{% if messages %}<div class="messages">{% for message in messages %}<div class="message {{ message.tags }}">{{ message }}</div>{% endfor %}</div>{% endif %}
+<main>{% block content %}{% endblock %}</main>
+<footer class="footer">
+  <div><a class="brand footer-brand" href="{% url 'home' %}"><span class="brand-mark">☀</span><span>S.K <b>BRIGHT</b><small>SOLAR ENERGY</small></span></a><p>Your Energy Partner. Solar solutions, installation and support across Uttar Pradesh.</p></div>
+  <div><h4>Explore</h4><a href="{% url 'products' %}">Solar Solutions</a><a href="{% url 'home' %}#services">Services</a><a href="{% url 'home' %}#faq">FAQs</a></div>
+  <div><h4>Contact</h4><a href="tel:+917398406469">7398406469</a><a href="https://wa.me/917307402720" target="_blank" rel="noopener">WhatsApp: 7307402720</a><span>Ramnagar, Varanasi, Uttar Pradesh</span></div>
+  <div class="copyright">© 2026 S.K Bright Solar Energy. All Rights Reserved.</div>
+</footer>
+<a class="floating-wa" href="https://wa.me/917307402720?text=Hello%2C%20I%20need%20solar%20information." aria-label="Chat with us on WhatsApp" target="_blank" rel="noopener">◉</a>
+<script src="{% static 'js/site.js' %}" defer></script>
+</body></html>
